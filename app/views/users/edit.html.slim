@@ -1,0 +1,14 @@
+h1 Edit account
+
+= simple_form_for(@user, url: { action: "update" } ) do |f|
+  = f.input :email, required: true, autofocus: true
+  = f.input :username, required: false, autofocus: true
+  = f.button :submit, "Save change"
+
+h3 Cancel my account
+
+p
+  'Unhappy?
+  = link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete
+
+= render 'users/links/back'
