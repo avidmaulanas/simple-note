@@ -3,11 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   validates :username, uniqueness: {case_sensitive: false}
 
   attr_accessor :signin
+
+  before_create :set_dummy_email, if: :provider_twitter?
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -23,7 +25,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.username = auth.info.name   # assuming the user model has a name
+      user.username = auth.info.name || auth.info.nickname   # assuming the user model has a name
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
@@ -35,4 +37,13 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def provider_twitter?
+    self.provider.eql?("twitter")
+  end
+
+  private
+    def set_dummy_email
+      self.email = "#{self.nickname}@email.com"
+    end
 end
