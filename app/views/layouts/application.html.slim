@@ -8,9 +8,10 @@ html
     = favicon_link_tag
     = csrf_meta_tags
 
-  body    
+  body
     - unless user_signed_in?
       = yield
+
     - else    
       content_for :css_tag
         = stylesheet_link_tag 'overrides', media: 'all', 'data-turbolinks-track' => true
