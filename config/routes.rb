@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :notes
   unauthenticated :user do
     root 'home#cover'
+    get 'features', to: 'home#features'
   end
   
   authenticated :user do
