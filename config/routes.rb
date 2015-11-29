@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  unauthenticated :user do
+    root 'home#cover'
+  end
+  
+  authenticated :user do
+    root 'home#index', as: :authenticated_root
+  end
 
   devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "omniauth_callbacks" }
   as :user do
