@@ -29,6 +29,8 @@ html
             ul.nav.navbar-nav
               li class="#{active_class(root_path)}"
                 = link_to 'Home', root_path
+              li class="#{active_class(notes_path)}"
+                = link_to 'Notes', notes_path
 
             ul.nav.navbar-nav.navbar-right
               li.dropdown
