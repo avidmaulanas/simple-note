@@ -1,5 +1,10 @@
-- @notes.each do |note|
-	.col-md-4.box
-		p
-	  	h2 = note.title
-		p = note.content
+table.table
+	thead
+		th #
+		th Title
+	tbody
+	- no = 0
+	- @notes.each do |note|
+		tr
+			td = no+=1
+			td = note.title
