@@ -11,8 +11,25 @@
  * file per style scope.
  *
  *= require_self
+ *= masonry/transitions.css
  */
 
  // // import the CSS framework
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+// infinite scroll
+#infscr-loading {
+  z-index: 100;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  bottom: 20px;
+  position: fixed;
+  img {
+    text-align: center;
+    display : block;
+    margin : 1em auto;
+
+  }
+}

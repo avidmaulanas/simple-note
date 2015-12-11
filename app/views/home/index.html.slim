@@ -1,2 +1,5 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.infinite-notes
+  = render partial: 'notes', object: @notes
+  
+.pagination
+  = link_to_next_page(@notes, 'Next Page', remote: true)

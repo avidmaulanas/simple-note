@@ -1,10 +1,7 @@
 p
   h2 = @note.title
 p = @note.content
-p
-  strong Lists:
-  = @note.lists
 
-= link_to 'Edit', edit_note_path(@note)
-'|
-= link_to 'Back', notes_path
+p
+	= link_to 'Edit', edit_note_path(@note), class: "btn btn-primary"
+	= link_to 'Back', notes_path, class: "btn btn-link"

@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action { gon.ajax_loader_path = ActionController::Base.helpers.image_path("ring-alt.gif") }
 
   helper_method :resource_name, :resource, :devise_mapping
 

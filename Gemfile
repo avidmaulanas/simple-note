@@ -21,15 +21,7 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'spring-commands-rspec'
 end
-
-# group :test do
-#   gem 'capybara'
-#   gem 'database_cleaner'
-#   gem 'launchy'
-#   gem 'selenium-webdriver'
-# end
 
 gem 'bootstrap-sass'
 gem 'devise'
@@ -41,5 +33,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google'
 gem 'dotenv-rails'
-
-
+gem 'jquery-infinite-pages'
+gem 'masonry-rails'
+gem 'kaminari'
+gem 'gon'

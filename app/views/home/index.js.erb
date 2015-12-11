@@ -1,0 +1,10 @@
+// Append new data
+$("<%=j render partial: 'notes', object: @notes %>").appendTo($(".infinite-notes"));
+
+// Update pagination link
+<% if @notes.last_page? %>
+  $('.pagination').html("That's all, folks!");
+<% else %>
+  $('.pagination')
+    .html("<%=j link_to_next_page(@notes, 'Next Page', remote: true) %>");
+<% end %>

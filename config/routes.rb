@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root 'home#index', as: :authenticated_root
   end
 
-  devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  devise_for :users, skip: [:sessions] #, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   as :user do
     get 'sign_in' => 'devise/sessions#new', as: :new_user_session
     post 'sign_in' => 'devise/sessions#create', as: :user_session
