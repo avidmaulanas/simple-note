@@ -1,5 +1,6 @@
-.table-responsive
-  = render 'notes'
+p = link_to "New Quote", new_note_path, class: "btn btn-default"
+.table-responsive	
+	= render 'notes'
   
-.pagination
+.text-center
   = paginate @notes

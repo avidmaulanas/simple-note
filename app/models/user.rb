@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          # :omniauthable, omniauth_providers: [:facebook, :twitter]
+  
+  has_many :notes
 
   validates :username, uniqueness: {case_sensitive: false}
 

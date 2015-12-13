@@ -1,5 +1,11 @@
 - @notes.each do |note|
-	.col-md-4.box
-		p
-	  	h2 = note.title
-		p = note.content
+	.col-md-4.box		
+		p 
+			= note.content_html
+			footer.text-muted				
+				cite title="#{note.user.email}" 
+					= note.user.email
+				= " #{time_formatted(note.created_at)}".html_safe
+				= " "
+				= link_to note
+					span.glyphicon.glyphicon-new-window

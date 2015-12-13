@@ -2,6 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(window).load -> 
+  $container = $('.infinite-notes')
+
+  $container.masonry
+    itemSelector: '.box'
+    columnWidth: '.box'
+  return
+
 $(document).bind "page:load page:change", ->
   $container = $('.infinite-notes')
 

@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require masonry/transitions.css
  *= require_self
- *= masonry/transitions.css
  */
 
  // // import the CSS framework
@@ -24,12 +24,22 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  bottom: 20px;
+  bottom: 30%;
   position: fixed;
   img {
     text-align: center;
     display : block;
     margin : 1em auto;
 
+  }
+}
+
+span.error {
+  color: #ff0033; 
+}
+
+p {
+  img {
+    margin: 0;
   }
 }

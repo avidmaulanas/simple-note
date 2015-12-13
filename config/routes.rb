@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :notes
+  resources :notes, path: "quotes"
   unauthenticated :user do
     root 'home#cover'
     get 'features', to: 'home#features'

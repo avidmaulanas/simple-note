@@ -23,6 +23,10 @@ group :development do
   gem 'rails_layout'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jstzdetect'
+end
+
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
@@ -36,4 +40,6 @@ gem 'dotenv-rails'
 gem 'jquery-infinite-pages'
 gem 'masonry-rails'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'gon'
+gem 'auto_html'

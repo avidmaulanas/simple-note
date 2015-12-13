@@ -13,7 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require masonry/masonry.min
 //= require masonry/jquery.infinitescroll.min
-//= require bootstrap-sprockets
+//= require jstzdetect
 //= require_tree .
+
+// Time zone
+var timezone = jstz.determine();
+document.cookie = 'time_zone='+timezone.name()+';';
+
+// Dropdown
+$('.dropdown-toggle').dropdown();

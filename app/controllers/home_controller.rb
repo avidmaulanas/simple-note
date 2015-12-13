@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def index
-  	@notes = Note.all.page(params[:page]).per(9)
+  	@notes = Note.all.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
 
   	respond_to do |format|
   		format.html

@@ -1,33 +1,8 @@
 = simple_form_for(@note) do |f|
   .form-group
-    = f.input :title, input_html: {class: "form-control"}
-
-  .form-group
     = f.input :content, input_html: {class: "form-control", rows: "8"}
 
-  / .form-group
-		/ = f.label :lists
-		/ #cblist
-		/ 	<input type="text" id="listName" class="form-control" />
-		/ 	<input type="button" value="ok" id="btnSave" />
-
   .form-group
-    = f.button :submit
+  	- submit_title = action_name.eql?("new") ? "Create" : "Update"
+    = f.button :submit, value: "#{submit_title} Quote", id: "btn-submit", data: { disable_with: "Loading..." }
     = link_to 'Cancel', notes_path, class: "btn btn-link"
-
-
-javascript:
-	$(document).ready(function() {
-	    $('#btnSave').click(function() {
-	        addCheckbox($('#listName').val());
-	    });
-	});
-
-	function addCheckbox(name) {
-	   var container = $('#cblist');
-	   var inputs = container.find('input');
-	   var id = inputs.length+1;
-
-	   $('<input />', { type: 'checkbox', id: 'list'+id, value: name}).appendTo(container);
-	   $('<label />', { 'for': 'list'+id, text: name }).appendTo(container);
-	}

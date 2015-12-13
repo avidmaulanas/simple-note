@@ -11,20 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129124947) do
+ActiveRecord::Schema.define(version: 20151213180808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "notes", force: :cascade do |t|
-    t.string   "title"
     t.text     "content"
-    t.jsonb    "lists",      default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
-  add_index "notes", ["lists"], name: "index_notes_on_lists", using: :gin
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,4 +50,5 @@ ActiveRecord::Schema.define(version: 20151129124947) do
   add_index "users", ["settings"], name: "index_users_on_settings", using: :gin
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
+  add_foreign_key "notes", "users"
 end
