@@ -1,0 +1,25 @@
+.box-section {
+	font-size: 21px;
+	font-family: "Cambria";
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  padding: 1.5rem;
+  width: 100%;
+  box-shadow: 2px 2px 4px 0 #ccc;
+  background: white;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  user-select: none;
+  animation: fly-in-from-left .5s 1s ease both;
+  transform-origin:top left;
+
+  p {
+	  img {
+	    margin: 0 auto;
+	  }
+	}
+
+	footer {
+		font-size: 14px;
+	}
+}

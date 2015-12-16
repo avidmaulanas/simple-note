@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require masonry/transitions.css
+ *= require box
  *= require_self
  */
 
@@ -36,10 +37,4 @@
 
 span.error {
   color: #ff0033; 
-}
-
-p {
-  img {
-    margin: 0;
-  }
 }
