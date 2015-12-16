@@ -75,7 +75,6 @@ html
                     = link_to 'Sign Out', destroy_user_session_path, method: :delete, id: 'sign_out'
 
       .container
-        .notice = notice
-        .alert  = alert
+        = flash_messages
 
         = yield  

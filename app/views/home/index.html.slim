@@ -1,5 +1,6 @@
-.infinite-notes
-  = render partial: 'notes', object: @notes
-  
-.pagination
-  = link_to_next_page(@notes, 'Next Page', remote: true)
+.row
+	.infinite-notes
+	  = render partial: 'notes', object: @notes
+	  
+	.pagination
+	  = link_to_next_page(@notes, 'Next Page', remote: true)
